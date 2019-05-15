@@ -10,3 +10,20 @@ const menu = document.querySelector(".menu");
 const menuButton = document.querySelector(".menu-button");
 // Using your menuButton reference, add a click handler that calls toggleMenu
 menuButton.addEventListener("click", () => toggleMenu());
+
+document.body.addEventListener("click", event => {
+  if (event.target.classList.contains("menu-button")) {
+    toggleMenu();
+  }
+
+  if (event.target.closest(".menu")) {
+    return;
+  } else {
+    if (
+      menu.classList.contains("menu--open") ||
+      event.target.classList.contains("menu-button")
+    ) {
+      toggleMenu();
+    }
+  }
+});
