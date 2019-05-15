@@ -1,5 +1,7 @@
 // Because classes are not hoisted you will need to start your code at the bottom of the page.  Look for the comment "START HERE"
-const expandButtonLabel = "expand";
+const expandButtonLabel = "Click to Expand";
+const collapseButtonLabel = "Click to Close";
+
 class Article {
   constructor(domElement) {
     // assign this.domElement to the passed in domElement
@@ -16,6 +18,13 @@ class Article {
   expandArticle() {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
     this.domElement.classList.toggle("article-open");
+    const labelText = this.expandButton.textContent;
+
+    if (labelText === expandButtonLabel) {
+      this.expandButton.textContent = collapseButtonLabel;
+    } else {
+      this.expandButton.textContent = expandButtonLabel;
+    }
   }
 }
 
